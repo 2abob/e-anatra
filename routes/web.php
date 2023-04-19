@@ -57,6 +57,12 @@ Route::post('/details_ecolage/{id_students}', [App\Http\Controllers\EcolageContr
 
 Route::get('/history_ecolage', [App\Http\Controllers\EcolageController::class, 'history_ecolage'])->name('history_ecolage');
 
+Route::get('/listeparcours', [App\Http\Controllers\ParcoursController::class, 'listeparcours'])->name('listeparcours');
+Route::get('/creationparcours', [App\Http\Controllers\ParcoursController::class, 'creationparcours'])->name('creationparcours');
+
+Route::get('/listementions', [App\Http\Controllers\MentionsController::class, 'listementions'])->name('listementions');
+Route::get('/creationmention', [App\Http\Controllers\MentionsController::class, 'creationmention'])->name('creationmention');
+
 //Route::get('/ecolage_details/{id_students}', [App\Http\Controllers\EcolageController::class, 'ecolage_details'])->name('ecolage_details');
 //Route::get('/ecolage_non_payer', [App\Http\Controllers\EcolageController::class, 'ecolage_non_payer'])->name('ecolage_non_payer');
 

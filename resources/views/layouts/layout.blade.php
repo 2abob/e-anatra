@@ -43,6 +43,18 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
+            <ul class="navbar-nav mr-lg-2">
+            <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                    <span class="input-group-text" id="search">
+                    <i class="icon-search"></i>
+                    </span>
+                </div>
+                <input type="text" class="form-control" id="navbar-search-input" placeholder="rechercher" aria-label="search" aria-describedby="search">
+                </div>
+            </li>
+            </ul>
             <ul class="navbar-nav navbar-nav-right">
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -104,29 +116,54 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                       aria-controls="ui-basic">
+                    <a class="nav-link" data-toggle="collapse" href="#parcours" aria-expanded="false" aria-controls="parcours">
                         <i class="icon-layout menu-icon"></i>
-                        <span class="menu-title">Gérer les étudiants    </span>
+                        <span class="menu-title">Gérer les parcours</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="ui-basic">
+                    <div class="collapse" id="parcours">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/show_all_students">Afficher tous les
-                                    étudiants</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/add_new_students">Ajouter un nouvel
-                                    étudiant</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/listeparcours">liste des parcours</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationparcours">Ajouter un parcour</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                       aria-controls="form-elements">
+                    <a class="nav-link" data-toggle="collapse" href="#mention" aria-expanded="false" aria-controls="mention">
+                        <i class="icon-layout menu-icon"></i>
+                        <span class="menu-title">Gérer les mentions</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="mention">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="/listementions">liste des mentions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationmention">Ajouter un mention</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#etudiants" aria-expanded="false"
+                       aria-controls="etudiants">
+                        <i class="icon-columns menu-icon"></i>
+                        <span class="menu-title">Gérer les etudiants</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="etudiants">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="/show_all_students">liste des &eacute;tudiants</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/add_new_students">Ajouter un &eacute;tudiant</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#classe" aria-expanded="false"
+                       aria-controls="classe">
                         <i class="icon-columns menu-icon"></i>
                         <span class="menu-title">Gérer les classes</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="form-elements">
+                    <div class="collapse" id="classe">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="/show_all_classroom">Afficher toutes les
                                     classes</a></li>
@@ -137,7 +174,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#form-element" aria-expanded="false"
-                       aria-controls="form-elements">
+                       aria-controls="form-element">
                         <i class="icon-columns menu-icon"></i>
                         <span class="menu-title">Gérer les types de cours</span>
                         <i class="menu-arrow"></i>
@@ -186,6 +223,7 @@
         @yield('content_add_new_ecolage')
         @yield('content_details_ecolage')
         @yield('content_history_ecolage')
+        @yield('content_creationmention')
 
         <!-- page-body-wrapper ends -->
     </div>
@@ -230,6 +268,9 @@
 <!-- End custom js for this page input-->
 
 <script src="{{ asset('js/customs/main.js') }}"></script>
+
+<script src="{{ asset('js/chart.js') }}"></script>
+
 </body>
 
 </html>
