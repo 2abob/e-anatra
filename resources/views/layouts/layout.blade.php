@@ -116,6 +116,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#niveau" aria-expanded="false" aria-controls="niveau">
+                        <i class="icon-layout menu-icon"></i>
+                        <span class="menu-title">Gérer les niveaux</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="niveau">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="/creationniveauform">creer un niveau</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/listeniveaux">liste de niveaux</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#parcours" aria-expanded="false" aria-controls="parcours">
                         <i class="icon-layout menu-icon"></i>
                         <span class="menu-title">Gérer les parcours</span>
@@ -224,6 +237,7 @@
         @yield('content_details_ecolage')
         @yield('content_history_ecolage')
         @yield('content_creationmention')
+        @yield('content')
 
         <!-- page-body-wrapper ends -->
     </div>

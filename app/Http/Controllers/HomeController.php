@@ -32,8 +32,8 @@ class HomeController extends Controller
         $count_all_classroom = classe::all()->count();
         $count_all_type_cours = type_cours::all()->count();
         $count_all_ecolage = ecolage::all()->count();
-        $test = DB::select('call getResultSet(103)');
+        // $test = DB::select('call getResultSet(103)');
 
-        return view('home',compact('count_all_classroom','count_all_student','count_all_type_cours','count_all_ecolage', 'test'));
+        return view('home',compact('count_all_classroom','count_all_student','count_all_type_cours','count_all_ecolage'));
     }
 }

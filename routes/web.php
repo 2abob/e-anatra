@@ -63,6 +63,13 @@ Route::get('/creationparcours', [App\Http\Controllers\ParcoursController::class,
 Route::get('/listementions', [App\Http\Controllers\MentionsController::class, 'listementions'])->name('listementions');
 Route::get('/creationmention', [App\Http\Controllers\MentionsController::class, 'creationmention'])->name('creationmention');
 
+Route::get('/listeniveaux', [App\Http\Controllers\NiveauController::class, 'listeniveaux'])->name('listeniveaux');
+Route::get('/creationniveauform', [App\Http\Controllers\NiveauController::class, 'creationniveauform'])->name('creationniveauform');
+Route::post('/creationniveau', [App\Http\Controllers\NiveauController::class, 'creationniveau'])->name('creationniveau');
+Route::get('/ficheniveau/{idniveau}', [App\Http\Controllers\NiveauController::class, 'ficheniveau'])->name('ficheniveau');
+Route::get('/modifierniveauform/{idniveau}', [App\Http\Controllers\NiveauController::class, 'modifierniveauform'])->name('modifierniveauform');
+Route::post('/modifierniveau/{idniveau}', [App\Http\Controllers\NiveauController::class, 'modifierniveau'])->name('modifierniveau');
+
 //Route::get('/ecolage_details/{id_students}', [App\Http\Controllers\EcolageController::class, 'ecolage_details'])->name('ecolage_details');
 //Route::get('/ecolage_non_payer', [App\Http\Controllers\EcolageController::class, 'ecolage_non_payer'])->name('ecolage_non_payer');
 
