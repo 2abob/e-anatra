@@ -15,14 +15,14 @@ class CreateEcolageEtudiantsTable extends Migration
     {
         Schema::create('ecolage_etudiants', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idParcourNiveau');
+            $table->unsignedBigInteger('idTarif');
             $table->unsignedBigInteger('idEtudiant');
             $table->unsignedBigInteger('tranche1');
             $table->unsignedBigInteger('tranche2');
             $table->unsignedBigInteger('tranche3');
             $table->unsignedBigInteger('tranche4');
             $table->timestamps();
-            $table->foreign('idParcourNiveau')->references('id')->on('parcours_niveaux');
+            $table->foreign('idTarif')->references('id')->on('tarifs');
             $table->foreign('idEtudiant')->references('id')->on('students');
         });
     }
