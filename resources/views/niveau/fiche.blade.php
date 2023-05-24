@@ -23,8 +23,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="/modifierniveauform/{{$niveau -> id}}" style="margin-top: 26px;" class="btn btn-primary btn-md">Modifier</a>
-                                <a href="/supprimerniveau/{{$niveau -> id}}" style="margin-top: 26px;" class="btn btn-danger btn-md">Supprimer</a>
+                                <a href="/modifierniveauform/{{$niveau -> id}}" class="btn btn-primary btn-md">Modifier</a>
+                                <a href="/supprimerniveau/{{$niveau -> id}}" class="btn btn-danger btn-md">Supprimer</a>
+
                             </div>
                         </div>
                     </div>
@@ -36,6 +37,8 @@
         </div>
         <!-- main-panel ends -->
         <!-- partial:../../partials/_footer.html -->
+        
+
         <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022.  Application développer et maintenue par Cours Ny Fahombiazako</span>

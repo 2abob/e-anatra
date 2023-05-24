@@ -22,7 +22,6 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
-    {{ asset('') }}
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('images/final3.png') }}"/>
     <!-- jquery dataTables -->
@@ -272,18 +271,17 @@
 <!-- jquery dataTables js for this page-->
 
 <!-- Plugin js for this page input -->
-<script src="{{ asset('../../vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
-<script src="{{ asset('../../vendors/select2/select2.min.js') }}"></script>
+<script src="{{ asset('vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
+<script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
 <!-- End plugin js for this page input -->
 <!-- Custom js for this page input-->
-<script src="{{ asset('../../js/file-upload.js') }}"></script>
-<script src="{{ asset('../../js/typeahead.js') }}"></script>
-<script src="{{ asset('../../js/select2.js') }}"></script>
+<script src="{{ asset('js/file-upload.js') }}"></script>
+<script src="{{ asset('js/typeahead.js') }}"></script>
+<script src="{{ asset('js/select2.js') }}"></script>
 <!-- End custom js for this page input-->
-
 <script src="{{ asset('js/customs/main.js') }}"></script>
-
 <script src="{{ asset('js/chart.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 
 </body>
 
