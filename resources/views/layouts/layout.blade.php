@@ -128,15 +128,15 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#parcours" aria-expanded="false" aria-controls="parcours">
+                    <a class="nav-link" data-toggle="collapse" href="#annee" aria-expanded="false" aria-controls="niveau">
                         <i class="icon-layout menu-icon"></i>
-                        <span class="menu-title">Gérer les parcours</span>
+                        <span class="menu-title">Gérer les annee universitaire</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="parcours">
+                    <div class="collapse" id="annee">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/listeparcours">liste des parcours</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/creationparcours">Ajouter un parcour</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationanneeuniversitaireform">creer une annee universitaire</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/listeanneeuniversitaire">liste d'annee universitaire</a></li>
                         </ul>
                     </div>
                 </li>
@@ -148,8 +148,34 @@
                     </a>
                     <div class="collapse" id="mention">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/listementions">liste des mentions</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/creationmention">Ajouter un mention</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/listemention">liste des mentions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationmentionform">Ajouter un mention</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#parcours" aria-expanded="false" aria-controls="parcours">
+                        <i class="icon-layout menu-icon"></i>
+                        <span class="menu-title">Gérer les parcours</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="parcours">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="/listeparcour">liste des parcours</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationparcourform">Ajouter un parcour</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#tarif" aria-expanded="false" aria-controls="parcours">
+                        <i class="icon-layout menu-icon"></i>
+                        <span class="menu-title">Gérer les tarifs</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="tarifs">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="/listeparcour">liste des parcours</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationparcourform">Ajouter un parcour</a></li>
                         </ul>
                     </div>
                 </li>
@@ -282,6 +308,7 @@
 <script src="{{ asset('js/customs/main.js') }}"></script>
 <script src="{{ asset('js/chart.js') }}"></script>
 <script src="{{ asset('js/modal.js') }}"></script>
+<script src="{{ asset('js/popup.js') }}"></script>
 
 </body>
 

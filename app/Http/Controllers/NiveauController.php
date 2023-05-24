@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\classe;
 use App\Models\Niveau;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +34,12 @@ class NiveauController extends Controller
         return view('niveau.liste', compact('allniveau'));
     }
 
+    public function popupniveau()
+    {
+        $allniveau = Niveau::all();
+        return view('niveau.popup', compact('allniveau'));
+    }
+
     public function creationniveauform()
     {
         return view('niveau.creation');
@@ -60,13 +65,13 @@ class NiveauController extends Controller
 
     public function ficheniveau($idniveau)
     {
-        $niveau = Niveau::where('niveaux.id', $idniveau)->first();
+        $niveau = Niveau::whereId($idniveau)->first();
         return view('niveau.fiche', compact('niveau'));
     }
 
     public function modifierniveauform($idniveau)
     {
-        $niveau = Niveau::where('niveaux.id', $idniveau)->first();
+        $niveau = Niveau::whereId($idniveau)->first();
         return view('niveau.modifier', compact('niveau'));
     }
 
@@ -78,5 +83,11 @@ class NiveauController extends Controller
         Niveau::whereId($idniveau)->update($validatedData);
 
         return redirect('/listeniveaux')->with('success', 'Le niveau a ete modifier.');
+    }
+
+    public function supprimerniveau($idniveau)
+    {
+        Niveau::whereId($idniveau)->delete();
+        return redirect('/listeniveaux')->with('success', 'Le niveau a ete supprimer.');
     }
 }

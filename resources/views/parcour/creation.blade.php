@@ -7,28 +7,41 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Modifier niveau</h4>
+                            <h4 class="card-title">Ajouter un parcour</h4>
                             <p class="card-description">
-                                Modification du niveau {{$niveau -> niveau}}
+                                Remplissez les champs ci-dessous pour ajouter un parcour
                             </p>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
-                                        <p class="card-description">
+                                        <p class="text-success">
                                             {{Session::get('success')}}
                                         </p>
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample" method="post" action="{{ route('modifierniveau', $niveau -> id )}}">
+                            @if(Session::has('error'))
+                                <div class="row form-ro">
+                                    <div class="col-md-12">
+                                        <p class="text-danger">
+                                            {{Session::get('error')}}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                            <form class="forms-sample"  method="post" action="{{ route('creationniveau') }}" enctype="multipart/form-data">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
                                 <div class="form-group">
-                                    <label for="niveau">niveau</label>
-                                    <input type="text" class="form-control" placeholder="niveau" name="niveau" id="niveau" required value="{{$niveau -> niveau}}">
+                                    <label for="exampleInputName1">mention</label>
+                                    <input name="idMention" onclick="popup('popupmention', 'idMention')" type="text" class="form-control" id="nom" placeholder="niveau" required autofocus>
                                 </div>
-                                <button type="submit" class="btn btn-primary mr-2">modifier</button>
-                                <a href="/ficheniveau/{{$niveau -> id}}" type="button" class="btn btn-light">annuler</a>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">pracour</label>
+                                    <input name="niveau" type="text" class="form-control" id="nom" placeholder="niveau" required autofocus>
+                                </div>
+                                <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
+                                <a href="/dashboard" type="button" class="btn btn-light">annuler</a>
                             </form>
                         </div>
                     </div>
@@ -43,6 +56,6 @@
                 <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"> <a href="" target="_blank">Cours Ny Fahombiazako</a></span>
             </div>
         </footer>
-        <!-- partial -->
     </div>
+        <!-- partial -->
 @endsection

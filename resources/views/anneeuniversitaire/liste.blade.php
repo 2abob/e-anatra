@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">liste de niveaux</h4>
+                            <h4 class="card-title">liste d'annee universitaire</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
@@ -23,17 +23,17 @@
                                 <table id="table" class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>niveau</th>
+                                        <th>annee universitaire</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($allniveau as $niveau)
+                                        @foreach ($allanneeuniversitaire as $anneeuniversitaire)
                                             <tr>
-                                                <td><a href="/ficheniveau/{{$niveau -> id}}" class="fw-normal mb-1">{{$niveau -> niveau}}</a></td>
+                                                <td><a href="/ficheanneeuniversitaire/{{$anneeuniversitaire -> id}}" class="fw-normal mb-1">{{$anneeuniversitaire -> annee}}</a></td>
                                                 <td>
-                                                    <a href="/modifierniveauform/{{$niveau -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
-                                                    <a href="/supprimerniveau/{{$niveau -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
+                                                    <a href="/modifieranneeuniversitireform/{{$anneeuniversitaire -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
+                                                    <a href="/supprimeranneeuniversitaire/{{$anneeuniversitaire -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
                                                 </td>
                                             </tr>
                                         @endforeach

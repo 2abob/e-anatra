@@ -25,7 +25,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="niveau">niveau</label>
-                                    <input type="text" class="form-control" placeholder="niveau" name="niveau" id="niveau" required value="{{$niveau -> niveau}}">
+                                    <input type="text" class="form-control" placeholder="nom du niveau" name="niveau" id="niveau" required value="{{$niveau -> niveau}}">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">modifier</button>
                                 <a href="/ficheniveau/{{$niveau -> id}}" type="button" class="btn btn-light">annuler</a>

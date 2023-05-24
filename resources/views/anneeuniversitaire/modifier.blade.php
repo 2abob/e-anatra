@@ -7,9 +7,9 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Modifier niveau</h4>
+                            <h4 class="card-title">Modifier annee universitaire</h4>
                             <p class="card-description">
-                                Modification du niveau {{$niveau -> niveau}}
+                                Modification de l'annee universitaire {{$anneeuniversitaire -> annee}}
                             </p>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
@@ -20,15 +20,15 @@
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample" method="post" action="{{ route('modifierniveau', $niveau -> id )}}">
+                            <form class="forms-sample" method="post" action="{{ route('modifierniveau', $anneeuniversitaire -> id )}}">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
                                 <div class="form-group">
-                                    <label for="niveau">niveau</label>
-                                    <input type="text" class="form-control" placeholder="niveau" name="niveau" id="niveau" required value="{{$niveau -> niveau}}">
+                                    <label for="niveau">annee universitaire</label>
+                                    <input type="text" class="form-control" placeholder="annee universitaire" name="niveau" id="niveau" required value="{{$anneeuniversitaire -> annee}}">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">modifier</button>
-                                <a href="/ficheniveau/{{$niveau -> id}}" type="button" class="btn btn-light">annuler</a>
+                                <a href="/ficheniveau/{{$anneeuniversitaire -> id}}" type="button" class="btn btn-light">annuler</a>
                             </form>
                         </div>
                     </div>
