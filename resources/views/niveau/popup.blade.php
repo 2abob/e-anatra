@@ -23,7 +23,7 @@
                                 <table id="table" class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>mention</th>
+                                        <th>niveau</th>
                                     </tr>
                                     </thead>
                                     <tbody>

@@ -52,7 +52,7 @@
                                     </tbody>
                                 </table>
                                 <a href="/modifiertarifform/{{$tarif -> id}}" class="btn btn-primary btn-md">Modifier</a>
-                                <a href="/supprimerniveau/{{$tarif -> id}}" class="btn btn-danger btn-md">Supprimer</a>
+                                <a href="/supprimertarif/{{$tarif -> id}}" class="btn btn-danger btn-md">Supprimer</a>
 
                             </div>
                         </div>

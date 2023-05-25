@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">ecolage</label>
-                                    <input name="ecolage" type="number" class="form-control" id="ecolage" placeholder="montant ecolage" required autofocus value="{{$tarif -> exolage}}">
+                                    <input name="ecolage" type="number" class="form-control" id="ecolage" placeholder="montant ecolage" required autofocus value="{{$tarif -> ecolage}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">tranche 1</label>
