@@ -14,10 +14,10 @@ class CreateTarifsTable extends Migration
     public function up()
     {
         Schema::create('tarifs', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('idAnnee');
-            $table->unsignedBigInteger('idParcour');
-            $table->unsignedBigInteger('idNiveau');
+            $table->string('id')->primary();
+            $table->string('idAnnee');
+            $table->string('idParcour');
+            $table->string('idNiveau');
             $table->unsignedBigInteger('ecolage');
             $table->unsignedBigInteger('tranche1');
             $table->unsignedBigInteger('tranche2');

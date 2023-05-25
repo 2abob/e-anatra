@@ -24,16 +24,13 @@
                                     <thead>
                                     <tr>
                                         <th>
+                                            Matricule
+                                        </th>
+                                        <th>
                                             Nom
                                         </th>
                                         <th>
                                             Prenoms
-                                        </th>
-                                        <th>
-                                            Classe
-                                        </th>
-                                        <th>
-                                            Type de cours
                                         </th>
                                         <th>
                                             Action
@@ -41,31 +38,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($all_student as $all_students)  <!-- boucle donne anaty service  -->
+                                        @foreach ($all_student as $students)  <!-- boucle donne anaty service  -->
 
                                     <tr>
+                                        <td><a href="/student_details/{{$students -> id}}" class="fw-normal mb-1">{{$students -> id}}</a></td>
+                                        <td>{{$students -> nom_etudiant}}</td>
+                                        <td>{{$students -> prenoms_etudiant}}</td>
                                         <td>
-                                            {{$all_students -> nom}}
-                                        </td>
-                                        <td>
-                                            {{$all_students -> prenoms}}
-                                        </td>
-                                        <td>
-                                            {{$all_students -> nom_classe}}
-                                        </td>
-                                        <td>
-                                            {{$all_students -> type_cours}}
-                                        </td>
-                                        <td>
-                                            <a href="/student_details/{{$all_students -> id}}">
-                                                <button
-                                                    type="button"
-                                                    class="btn btn-outline-info btn-fw"
-                                                    data-mdb-ripple-color="dark"
-                                                >
-                                                    afficher  plus
-                                                </button>
-                                            </a>
+                                            <a href="/update_student/{{$students -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
+                                            <a href="/delete_student/{{$students -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
                                         </td>
                                     </tr>
 {{--                                    <!-- {{$cnt++}} -->--}}

@@ -14,14 +14,15 @@ class CreateEcolageEtudiantsTable extends Migration
     public function up()
     {
         Schema::create('ecolage_etudiants', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('idTarif');
-            $table->unsignedBigInteger('idEtudiant');
+            $table->string('id')->primary();
+            $table->string('idTarif');
+            $table->string('idEtudiant');
             $table->unsignedBigInteger('tranche1');
             $table->unsignedBigInteger('tranche2');
             $table->unsignedBigInteger('tranche3');
             $table->unsignedBigInteger('tranche4');
             $table->timestamps();
+            $table->unique(['idTarif', 'idEtudiant']);
             $table->foreign('idTarif')->references('id')->on('tarifs');
             $table->foreign('idEtudiant')->references('id')->on('students');
         });

@@ -14,9 +14,9 @@ class CreateParcoursTable extends Migration
     public function up()
     {
         Schema::create('parcours', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('idMention');
-            $table->string('parcour');
+            $table->string('id')->primary();
+            $table->string('idMention');
+            $table->string('parcour')->unique();
             $table->timestamps();
             $table->foreign('idMention')->references('id')->on('mentions');
         });

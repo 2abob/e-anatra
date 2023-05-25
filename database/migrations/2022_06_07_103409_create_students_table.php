@@ -14,10 +14,10 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_classe');
-            $table->unsignedBigInteger('id_type_cours');
-            $table->string('matricule');
+            $table->string('id')->primary();
+            // $table->unsignedBigInteger('id_classe');
+            // $table->unsignedBigInteger('id_type_cours');
+            // $table->string('matricule');
             $table->string('image')->nullable();
             $table->string('nom_etudiant');
             $table->string('prenoms_etudiant');
@@ -28,8 +28,8 @@ class CreateStudentsTable extends Migration
             $table->string('sexe');
             $table->string('adresse');
             $table->timestamps();
-            $table->foreign('id_classe')->references('id')->on('classes');
-            $table->foreign('id_type_cours')->references('id')->on('type_cours');
+            // $table->foreign('id_classe')->references('id')->on('classes');
+            // $table->foreign('id_type_cours')->references('id')->on('type_cours');
         });
     }
 

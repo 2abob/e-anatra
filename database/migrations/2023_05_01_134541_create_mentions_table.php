@@ -14,8 +14,8 @@ class CreateMentionsTable extends Migration
     public function up()
     {
         Schema::create('mentions', function (Blueprint $table) {
-            $table->id();
-            $table->string('mention');
+            $table->string('id')->primary();
+            $table->string('mention')->unique();
             $table->timestamps();
         });
     }

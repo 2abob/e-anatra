@@ -10,29 +10,39 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Details de l'etudiant</h4>
+                            @if(Session::has('success'))
+                                <div class="row form-ro">
+                                    <div class="col-md-12">
+                                        <p class="text-success">
+                                            {{Session::get('success')}}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
+                            @if(Session::has('error'))
+                                <div class="row form-ro">
+                                    <div class="col-md-12">
+                                        <p class="text-danger">
+                                            {{Session::get('error')}}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="table-responsive pt-3">
                                 <table class="table table-bordered">
                                     <tbody>
                                     {{--                                    <!-- {{$cnt=1}} --> @foreach ($all_student as $all_students)  <!-- boucle donne anaty service  -->--}}
                                     <tr>
                                         <th>Nom</th>
-                                        <td>{{$student_details -> nom}}</td>
+                                        <td>{{$student_details -> nom_etudiant}}</td>
                                     </tr>
                                     <tr>
                                         <th>Prenoms</th>
-                                        <td>{{$student_details -> prenoms}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Classe</th>
-                                        <td>{{$student_details -> nom_classe}}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Type de cours</th>
-                                        <td>{{$student_details -> type_cours}}</td>
+                                        <td>{{$student_details -> prenoms_etudiant}}</td>
                                     </tr>
                                     <tr>
                                         <th>Matricule</th>
-                                        <td>{{$student_details -> matricule}}</td>
+                                        <td>{{$student_details -> id}}</td>
                                     </tr>
                                     <tr>
                                         <th>Image</th>

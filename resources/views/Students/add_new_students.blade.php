@@ -20,31 +20,18 @@
                         </div>
                     </div>
                 @endif
+                @if(Session::has('error'))
+                    <div class="row form-ro">
+                        <div class="col-md-12">
+                            <p class="text-danger">
+                                {{Session::get('error')}}
+                            </p>
+                        </div>
+                    </div>
+                @endif
                 <form class="forms-sample"  method="post" action="{{ route('add_new_students.store') }}" enctype="multipart/form-data">
                     <!-- CROSS Site Request Forgery Protection -->
                     @csrf
-                    <div class="form-group">
-                        <label for="exampleSelectGender">Classe</label>
-                        <select name="id_classe" class="form-control" id="id_classe" required onchange="autofillMatricule()">
-                            <option value="">--Choisir la classe--</option>
-                            @foreach ($all_classroom as $all_classrooms)
-                                <option value="{{$all_classrooms -> id}}">{{$all_classrooms -> nom_classe}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleSelectGender">Type de cours</label>
-                        <select name="id_type_cours" class="form-control" id="id_type_cours" required onchange="autofillMatricule()">
-                            <option value="">--Choisir le type de cours--</option>
-                            @foreach ($all_type_cour as $all_type_cours)
-                                <option value="{{$all_type_cours -> id}}">{{$all_type_cours -> type_cours}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputName1">Matricule</label>
-                        <input name="matricule" type="text" class="form-control" id="matricule" placeholder="Matricule">
-                    </div>
                     <div class="form-group">
                         <label>Photo</label>
                         <input type="file" name="image" class="file-upload-default">
@@ -57,11 +44,11 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Nom</label>
-                        <input name="nom" type="text" class="form-control" id="nom" placeholder="Nom" required autofocus>
+                        <input name="nom_etudiant" type="text" class="form-control" id="nom" placeholder="Nom" required autofocus>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Prénoms</label>
-                        <input name="prenoms" type="text" class="form-control" id="prenom" placeholder="Prenoms" required>
+                        <input name="prenoms_etudiant" type="text" class="form-control" id="prenom" placeholder="Prenoms" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword4">Date de naissance</label>
