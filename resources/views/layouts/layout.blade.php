@@ -194,7 +194,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#classe" aria-expanded="false"
                        aria-controls="classe">
                         <i class="icon-columns menu-icon"></i>
@@ -225,7 +225,7 @@
                                     cours</a></li>
                         </ul>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false"
                        aria-controls="charts">
