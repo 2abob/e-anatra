@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">liste de niveaux</h4>
+                            <h4 class="card-title">liste de tarifs</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
@@ -23,17 +23,25 @@
                                 <table id="table" class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>Nom</th>
+                                        <th>id tarif</th>
+                                        <th>id annee</th>
+                                        <th>id parcour</th>
+                                        <th>id niveau</th>
+                                        <th>ecolage</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($allniveau as $niveau)
+                                        @foreach ($alltarif as $tarif)
                                             <tr>
-                                                <td><a href="/ficheniveau/{{$niveau -> id}}" class="fw-normal mb-1">{{$niveau -> niveau}}</a></td>
+                                                <td><a href="/fichetarif/{{$tarif -> id}}" class="fw-normal mb-1">{{$tarif -> id}}</a></td>
+                                                <td>{{$tarif -> idAnnee}}</td>
+                                                <td>{{$tarif -> idParcour}}</td>
+                                                <td>{{$tarif -> idNiveau}}</td>
+                                                <td>{{$tarif -> ecolage}}</td>
                                                 <td>
-                                                    <a href="/modifierniveauform/{{$niveau -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
-                                                    <a href="/supprimerniveau/{{$niveau -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
+                                                    <a href="/modifiertarifform/{{$tarif -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
+                                                    <a href="/supprimertarif/{{$tarif -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
                                                 </td>
                                             </tr>
                                         @endforeach

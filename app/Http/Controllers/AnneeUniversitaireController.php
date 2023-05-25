@@ -68,6 +68,6 @@ class AnneeUniversitaireController extends Controller
     public function supprimeranneeuniversitaire($idanneeuniversitaire)
     {
         AnneeUniversitaire::whereId($idanneeuniversitaire)->delete();
-        return redirect('/listeanneeuniversitaire')->with('success', 'Le niveau a ete supprimer.');
+        return redirect('/listeanneeuniversitaire')->with('success', "L'annee universitaire a ete supprimer.");
     }
 }

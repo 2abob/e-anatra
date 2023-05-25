@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">liste de niveaux</h4>
+                            <h4 class="card-title">liste de parcour</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
@@ -19,21 +19,32 @@
                                     </div>
                                 </div>
                             @endif
+                            @if(Session::has('error'))
+                                <div class="row form-ro">
+                                    <div class="col-md-12">
+                                        <p class="text-danger">
+                                            {{Session::get('error')}}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="table-responsive pt-3">
                                 <table id="table" class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>Nom</th>
+                                        <th>parcour</th>
+                                        <th>mention</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($allniveau as $niveau)
+                                        @foreach ($allparcour as $parcour)
                                             <tr>
-                                                <td><a href="/ficheniveau/{{$niveau -> id}}" class="fw-normal mb-1">{{$niveau -> niveau}}</a></td>
+                                                <td><a href="/ficheparcour/{{$parcour -> id}}" class="fw-normal mb-1">{{$parcour -> parcour}}</a></td>
+                                                <td><a href="/ficheparcour/{{$parcour -> id}}" class="fw-normal mb-1">{{$parcour -> idMention}}</a></td>
                                                 <td>
-                                                    <a href="/modifierniveauform/{{$niveau -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
-                                                    <a href="/supprimerniveau/{{$niveau -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
+                                                    <a href="/modifierparcourform/{{$parcour -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
+                                                    <a href="/supprimerparcour/{{$parcour -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
                                                 </td>
                                             </tr>
                                         @endforeach

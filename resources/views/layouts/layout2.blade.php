@@ -77,7 +77,6 @@
 <!-- End custom js for this page input-->
 <script src="{{ asset('js/customs/main.js') }}"></script>
 <script src="{{ asset('js/chart.js') }}"></script>
-<script src="{{ asset('js/modal.js') }}"></script>
 <script src="{{ asset('js/popup.js') }}"></script>
 
 </body>

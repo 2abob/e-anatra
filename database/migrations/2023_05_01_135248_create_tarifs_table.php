@@ -15,6 +15,7 @@ class CreateTarifsTable extends Migration
     {
         Schema::create('tarifs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('idAnnee');
             $table->unsignedBigInteger('idParcour');
             $table->unsignedBigInteger('idNiveau');
             $table->unsignedBigInteger('ecolage');
@@ -23,6 +24,7 @@ class CreateTarifsTable extends Migration
             $table->unsignedBigInteger('tranche3');
             $table->unsignedBigInteger('tranche4');
             $table->timestamps();
+            $table->foreign('idAnnee')->references('id')->on('annee_universitaires');
             $table->foreign('idParcour')->references('id')->on('parcours');
             $table->foreign('idNiveau')->references('id')->on('niveaux');
         });

@@ -20,15 +20,15 @@
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample" method="post" action="{{ route('modifierniveau', $anneeuniversitaire -> id )}}">
+                            <form class="forms-sample" method="post" action="{{ route('modifieranneeuniversitaire', $anneeuniversitaire -> id )}}">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
                                 <div class="form-group">
                                     <label for="niveau">annee universitaire</label>
-                                    <input type="text" class="form-control" placeholder="annee universitaire" name="niveau" id="niveau" required value="{{$anneeuniversitaire -> annee}}">
+                                    <input type="text" class="form-control" placeholder="annee universitaire" name="annee" id="annee" required value="{{$anneeuniversitaire -> annee}}">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">modifier</button>
-                                <a href="/ficheniveau/{{$anneeuniversitaire -> id}}" type="button" class="btn btn-light">annuler</a>
+                                <a href="/ficheanneeuniversitaire/{{$anneeuniversitaire -> id}}" type="button" class="btn btn-light">annuler</a>
                             </form>
                         </div>
                     </div>

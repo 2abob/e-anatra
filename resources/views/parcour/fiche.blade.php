@@ -27,8 +27,8 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="/modifierniveauform/{{$parcour -> id}}" class="btn btn-primary btn-md">Modifier</a>
-                                <a href="/supprimerniveau/{{$parcour -> id}}" class="btn btn-danger btn-md">Supprimer</a>
+                                <a href="/modifierparcourform/{{$parcour -> id}}" class="btn btn-primary btn-md">Modifier</a>
+                                <a href="/supprimerparcour/{{$parcour -> id}}" class="btn btn-danger btn-md">Supprimer</a>
 
                             </div>
                         </div>

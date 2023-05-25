@@ -73,7 +73,7 @@ Route::get('/ficheanneeuniversitaire/{idanneeuniversitaire}', [App\Http\Controll
 Route::get('/modifieranneeuniversitireform/{idanneeuniversitaire}', [App\Http\Controllers\AnneeUniversitaireController::class, 'modifieranneeuniversitireform'])->name('modifieranneeuniversitireform');
 Route::post('/modifieranneeuniversitaire/{idanneeuniversitaire}', [App\Http\Controllers\AnneeUniversitaireController::class, 'modifieranneeuniversitaire'])->name('modifieranneeuniversitaire');
 Route::get('/supprimeranneeuniversitaire/{idanneeuniversitaire}', [App\Http\Controllers\AnneeUniversitaireController::class, 'supprimeranneeuniversitaire'])->name('supprimeranneeuniversitaire');
-Route::get('/popupanneeuniversitaire', [App\Http\Controllers\NiveauController::class, 'popupanneeuniversitaire'])->name('popupanneeuniversitaire');
+Route::get('/popupanneeuniversitaire', [App\Http\Controllers\AnneeUniversitaireController::class, 'popupanneeuniversitaire'])->name('popupanneeuniversitaire');
 
 Route::get('/listemention', [App\Http\Controllers\MentionsController::class, 'listemention'])->name('listemention');
 Route::get('/creationmentionform', [App\Http\Controllers\MentionsController::class, 'creationmentionform'])->name('creationmentionform');
@@ -82,7 +82,7 @@ Route::get('/fichemention/{idmention}', [App\Http\Controllers\MentionsController
 Route::get('/modifiermentionform/{idmention}', [App\Http\Controllers\MentionsController::class, 'modifiermentionform'])->name('modifiermentionform');
 Route::post('/modifiermention/{idmention}', [App\Http\Controllers\MentionsController::class, 'modifiermention'])->name('modifiermention');
 Route::get('/supprimermention/{idmention}', [App\Http\Controllers\MentionsController::class, 'supprimermention'])->name('supprimermention');
-Route::get('/popupmention', [App\Http\Controllers\NiveauController::class, 'popupmention'])->name('popupmention');
+Route::get('/popupmention', [App\Http\Controllers\MentionsController::class, 'popupmention'])->name('popupmention');
 
 Route::get('/listeparcour', [App\Http\Controllers\ParcoursController::class, 'listeparcour'])->name('listeparcour');
 Route::get('/creationparcourform', [App\Http\Controllers\ParcoursController::class, 'creationparcourform'])->name('creationparcourform');
@@ -91,7 +91,7 @@ Route::get('/ficheparcour/{idparcour}', [App\Http\Controllers\ParcoursController
 Route::get('/modifierparcourform/{idparcour}', [App\Http\Controllers\ParcoursController::class, 'modifierparcourform'])->name('modifierparcourform');
 Route::post('/modifierparcour/{idparcour}', [App\Http\Controllers\ParcoursController::class, 'modifierparcour'])->name('modifierparcour');
 Route::get('/supprimerparcour/{idparcour}', [App\Http\Controllers\ParcoursController::class, 'supprimerparcour'])->name('supprimerparcour');
-Route::get('/popupparcour', [App\Http\Controllers\NiveauController::class, 'popupparcour'])->name('popupparcour');
+Route::get('/popupparcour', [App\Http\Controllers\ParcoursController::class, 'popupparcour'])->name('popupparcour');
 
 Route::get('/listetarif', [App\Http\Controllers\TarifsController::class, 'listetarif'])->name('listetarif');
 Route::get('/creationtarifform', [App\Http\Controllers\TarifsController::class, 'creationtarifform'])->name('creationtarifform');
@@ -100,7 +100,7 @@ Route::get('/fichetarif/{idtarif}', [App\Http\Controllers\TarifsController::clas
 Route::get('/modifiertarifform/{idtarif}', [App\Http\Controllers\TarifsController::class, 'modifiertarifform'])->name('modifiertarifform');
 Route::post('/modifiertarif/{idtarif}', [App\Http\Controllers\TarifsController::class, 'modifiertarif'])->name('modifiertarif');
 Route::get('/supprimertarif/{idtarif}', [App\Http\Controllers\TarifsController::class, 'supprimertarif'])->name('supprimertarif');
-Route::get('/popuptarif', [App\Http\Controllers\NiveauController::class, 'popuptarif'])->name('popuptarif');
+Route::get('/popuptarif', [App\Http\Controllers\TarifsController::class, 'popuptarif'])->name('popuptarif');
 
 //Route::get('/ecolage_details/{id_students}', [App\Http\Controllers\EcolageController::class, 'ecolage_details'])->name('ecolage_details');
 //Route::get('/ecolage_non_payer', [App\Http\Controllers\EcolageController::class, 'ecolage_non_payer'])->name('ecolage_non_payer');

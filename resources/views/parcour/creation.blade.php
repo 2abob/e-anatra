@@ -29,16 +29,16 @@
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample"  method="post" action="{{ route('creationniveau') }}" enctype="multipart/form-data">
+                            <form class="forms-sample"  method="post" action="{{ route('creationparcour') }}" enctype="multipart/form-data">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputName1">mention</label>
-                                    <input name="idMention" onclick="popup('popupmention', 'idMention')" type="text" class="form-control" id="nom" placeholder="niveau" required autofocus>
+                                    <input name="idMention" onchange="popup('popupmention', 'idMention')" onclick="popup('popupmention', 'idMention')" type="text" class="form-control" id="idMention" placeholder="mention" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">pracour</label>
-                                    <input name="niveau" type="text" class="form-control" id="nom" placeholder="niveau" required autofocus>
+                                    <input name="parcour" type="text" class="form-control" id="parcour" placeholder="parcour" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <a href="/dashboard" type="button" class="btn btn-light">annuler</a>

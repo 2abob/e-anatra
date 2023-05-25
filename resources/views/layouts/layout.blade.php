@@ -167,15 +167,15 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#tarif" aria-expanded="false" aria-controls="parcours">
+                    <a class="nav-link" data-toggle="collapse" href="#tarif" aria-expanded="false" aria-controls="tarif">
                         <i class="icon-layout menu-icon"></i>
                         <span class="menu-title">Gérer les tarifs</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="collapse" id="tarifs">
+                    <div class="collapse" id="tarif">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/listeparcour">liste des parcours</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/creationparcourform">Ajouter un parcour</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/listetarif">liste des tarifs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/creationtarifform">Ajouter un tarif</a></li>
                         </ul>
                     </div>
                 </li>
@@ -307,7 +307,6 @@
 <!-- End custom js for this page input-->
 <script src="{{ asset('js/customs/main.js') }}"></script>
 <script src="{{ asset('js/chart.js') }}"></script>
-<script src="{{ asset('js/modal.js') }}"></script>
 <script src="{{ asset('js/popup.js') }}"></script>
 
 </body>

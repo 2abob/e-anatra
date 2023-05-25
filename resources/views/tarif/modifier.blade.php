@@ -7,9 +7,9 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Modifier niveau</h4>
+                            <h4 class="card-title">Modifier tarif</h4>
                             <p class="card-description">
-                                Modification du niveau {{$niveau -> niveau}}
+                                Modification du tarif {{$tarif -> id}}
                             </p>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
@@ -20,15 +20,43 @@
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample" method="post" action="{{ route('modifierniveau', $niveau -> id )}}">
+                            <form class="forms-sample" method="post" action="{{ route('modifiertarif', $tarif -> id )}}">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
                                 <div class="form-group">
-                                    <label for="niveau">niveau</label>
-                                    <input type="text" class="form-control" placeholder="nom du niveau" name="niveau" id="niveau" required value="{{$niveau -> niveau}}">
+                                    <label for="exampleInputName1">annee universitaire</label>
+                                    <input name="idAnnee" onclick="popup('popupanneeuniversitaire', 'idAnnee')" type="text" class="form-control" id="idAnnee" placeholder="annee universitaire" required autofocus value="{{$tarif -> idAnnee}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">parcour</label>
+                                    <input name="idParcour" onclick="popup('popupparcour', 'idParcour')" type="text" class="form-control" id="idParcour" placeholder="parcour" required autofocus value="{{$tarif -> idParcour}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">niveau</label>
+                                    <input name="idNiveau" onclick="popup('popupniveau', 'idNiveau')" type="text" class="form-control" id="idNiveau" placeholder="niveau" required autofocus value="{{$tarif -> idNiveau}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">ecolage</label>
+                                    <input name="ecolage" type="number" class="form-control" id="ecolage" placeholder="montant ecolage" required autofocus value="{{$tarif -> exolage}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">tranche 1</label>
+                                    <input name="tranche1" type="number" class="form-control" id="tranche1" placeholder="montant tranche 1" required autofocus value="{{$tarif -> tranche1}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">tranche 2</label>
+                                    <input name="tranche2" type="number" class="form-control" id="tranche2" placeholder="montant tranche 2" required autofocus value="{{$tarif -> tranche2}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">tranche 3</label>
+                                    <input name="tranche3" type="number" class="form-control" id="tranche3" placeholder="montant tranche 3" required autofocus value="{{$tarif -> tranche3}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">tranche 4</label>
+                                    <input name="tranche4" type="number" class="form-control" id="tranche4" placeholder="montant tranche 4" required autofocus value="{{$tarif -> tranche4}}">
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">modifier</button>
-                                <a href="/ficheniveau/{{$niveau -> id}}" type="button" class="btn btn-light">annuler</a>
+                                <a href="/fichetarif/{{$tarif -> id}}" type="button" class="btn btn-light">annuler</a>
                             </form>
                         </div>
                     </div>

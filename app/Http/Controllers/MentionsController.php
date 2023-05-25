@@ -60,7 +60,7 @@ class MentionsController extends Controller
         $validatedData = $request->validate([
             'mention' => 'required',
         ]);
-        Mention::whereId($idniveau)->update($validatedData);
+        Mention::whereId($idmention)->update($validatedData);
 
         return redirect('/listemention')->with('success', 'La mention a ete modifier.');
     }

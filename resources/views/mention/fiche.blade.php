@@ -23,7 +23,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="/modifiermentionform/{{$nivmentioneau -> id}}" class="btn btn-primary btn-md">Modifier</a>
+                                <a href="/modifiermentionform/{{$mention -> id}}" class="btn btn-primary btn-md">Modifier</a>
                                 <a href="/supprimermention/{{$mention -> id}}" class="btn btn-danger btn-md">Supprimer</a>
 
                             </div>
