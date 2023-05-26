@@ -49,4 +49,45 @@ END //
 
 DELIMITER ;
 
+-- nombre eleve ayant souscri a un tarif
+create view nombreelevepartarif as
+select idTarif, count(*) as nbeleve 
+from ecolage_etudiants;
 
+--montant que la totalite des eleves devrait payer
+create view apayerengeneral as
+select t.id, t.idAnnee, sum(t.ecolage * nbe.nbeleve) as apayer
+from tarifs t join nombreelevepartarif nbe on t.id = nbe.idTarif group by t.idAnnee;
+
+--montant deja paye par la totalite des eleves
+create view dejapayerengeneral as
+select t.idAnnee, sum(ee.tranche1)+sum(ee.tranche2)+sum(ee.tranche3)+sum(ee.tranche4) as dejapaye
+from ecolage_etudiants ee join tarifs t on ee.idTarif = t.id group by t.idAnnee;
+
+
+--montant que la totalite des eleves par mention devrait payer
+create view apayerparmention as
+select t.id, p.idMention, t.idAnnee, sum(t.ecolage * nbe.nbeleve) as apayer
+from tarifs t join nombreelevepartarif nbe on t.id = nbe.idTarif 
+join parcours p on t.idParcour = p.id
+group by p.idMention, t.idAnnee;
+
+--montant deja paye par la totalite des eleves par mention
+create view dejapayerparmention as
+select p.idMention, t.idAnnee, sum(ee.tranche1)+sum(ee.tranche2)+sum(ee.tranche3)+sum(ee.tranche4) as dejapaye
+from ecolage_etudiants ee join tarifs t on ee.idTarif = t.id 
+join parcours p on t.idParcour = p.id
+group by p.idMention, t.idAnnee;
+
+
+--montant que la totalite des eleves par parcour devrait payer
+create view apayerparparcour as
+select t.id, t.idParcour, t.idAnnee, sum(t.ecolage * nbe.nbeleve) as apayer
+from tarifs t join nombreelevepartarif nbe on t.id = nbe.idTarif 
+group by t.idParcour, t.idAnnee;
+
+--montant deja paye par la totalite des eleves par parcour
+create view dejapayerparparcour as
+select t.idParcour, t.idAnnee, sum(ee.tranche1)+sum(ee.tranche2)+sum(ee.tranche3)+sum(ee.tranche4) as dejapaye
+from ecolage_etudiants ee join tarifs t on ee.idTarif = t.id 
+group by t.idParcour, t.idAnnee;
