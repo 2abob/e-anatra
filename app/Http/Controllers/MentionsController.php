@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mention;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class MentionsController extends Controller
 {
+    private $menumention, $menuparcour;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
+    }
 
     public function listemention()
     {
         $allmention = Mention::all();
-        return view('mention.liste', compact('allmention'));
+        return view('mention.liste', ['allmention' => $allmention, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function popupmention()
@@ -22,7 +31,8 @@ class MentionsController extends Controller
 
     public function creationmentionform()
     {
-        return view('mention.creation');
+        // var_dump($this->menumention);
+        return view('mention.creation', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function creationmention(Request $request)
@@ -46,13 +56,13 @@ class MentionsController extends Controller
     public function fichemention($idmention)
     {
         $mention = Mention::whereId($idmention)->first();
-        return view('mention.fiche', compact('mention'));
+        return view('mention.fiche', ['mention' => $mention, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifiermentionform($idmention)
     {
         $mention = Mention::whereId($idmention)->first();
-        return view('mention.modifier', compact('mention'));
+        return view('mention.modifier', ['mention' => $mention, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifiermention(Request $request, $idmention)

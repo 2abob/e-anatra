@@ -4,15 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Tarif;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class TarifsController extends Controller
 {
-    //
+    private $menumention, $menuparcour;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
+    }
 
     public function listetarif()
     {
         $alltarif = Tarif::all();
-        return view('tarif.liste', compact('alltarif'));
+        return view('tarif.liste', ['alltarif' => $alltarif, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function popuptarif()
@@ -23,7 +32,7 @@ class TarifsController extends Controller
 
     public function creationtarifform()
     {
-        return view('tarif.creation');
+        return view('tarif.creation', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function creationtarif(Request $request)
@@ -53,13 +62,13 @@ class TarifsController extends Controller
     public function fichetarif($idtarif)
     {
         $tarif = Tarif::whereId($idtarif)->first();
-        return view('tarif.fiche', compact('tarif'));
+        return view('tarif.fiche', ['tarif' => $tarif, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifiertarifform($idtarif)
     {
         $tarif = Tarif::whereId($idtarif)->first();
-        return view('tarif.modifier', compact('tarif'));
+        return view('tarif.modifier', ['tarif' => $tarif, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifiertarif(Request $request, $idtarif)

@@ -6,17 +6,19 @@ use App\Models\classe;
 use App\Models\Student;
 use App\Models\type_cours;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
+use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    private $menumention, $menuparcour;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
     }
 
     public function show_all_students()
@@ -36,7 +38,13 @@ class StudentsController extends Controller
         $all_student = student::all();
 
 //        $newestim = estimation::where('point',)->join("users", "users.id", "=", "estimations.iduser")->join("realities", "realities.date", "=", "estimations.dateestim")->get();
-        return view('Students.show_all_students', compact('all_student'));
+        return view('Students.show_all_students', ['all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+    }
+
+    public function popupetudiant()
+    {
+        $all_student = student::all();
+        return view('Students.popup', compact('all_student'));
     }
 
     public function show_student_details($id_student)
@@ -45,14 +53,14 @@ class StudentsController extends Controller
 //        dd($student_details->created_at);
 //        $student_details_join = student::join('classes',$student_details->id_classe,'=','classes.id')->get();
 
-        return view('Students.show_student_details', compact('student_details'));
+        return view('Students.show_student_details', ['student_details' => $student_details, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function add_new_students()
     {
         $all_classroom = classe::all();
         $all_type_cour = type_cours::all();
-        return view('Students.add_new_students', compact('all_classroom', 'all_type_cour'));
+        return view('Students.add_new_students', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     // Store Contact Form data
@@ -107,7 +115,7 @@ class StudentsController extends Controller
 
         $student = student::whereId($id_student)->first();
 //        $student = student::where('id',$id_student)->first();
-        return view('Students.update_student', compact('student', 'all_classroom', 'all_type_cour'));
+        return view('Students.update_student', ['student' => $student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function update_studentForm(Request $request, $id_student)
@@ -167,5 +175,36 @@ class StudentsController extends Controller
             // var_dump($e);
         }
 
+    }
+
+    public function listeetudiantparmention($idMention)
+    {
+        try{
+            $titre = "liste des etudiants pour la mention ".$idMention;
+            $all_student = DB::table('listeetudiantmention')->where('idMention', $idMention);
+            // var_dump($all_student);
+            // return view('Students.liste', ['titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+        }
+        catch (\Exception $e) {
+            // return back()->with('success', $e->getMessage().'');
+           echo $e->getMessage().'';
+            // return back()->with('error', $e);
+            // echo "Erreur : ".$e->getMessage().'<br>';
+            // var_dump($e);
+        }
+    }
+
+    public function listeetudiantparparcour($idParcour)
+    {
+        $titre = "liste des etudiants pour la mention ".$idParcour;
+        // var_dump($titre);
+        $all_student = DB::table('listeetudiantmention')->where('idParcour', $idParcour);
+        return view('Students.liste', ['titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+    }
+
+    public function resultatrecherche($key)
+    {
+        $results = DB::select(DB::raw('CALL rechercher(?)'), [$key]);
+        return view('Students.resultat', ['key' => $key, 'results' => $results, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 }

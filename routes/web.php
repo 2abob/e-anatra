@@ -32,6 +32,10 @@ Route::post('/add_new_students', [App\Http\Controllers\StudentsController::class
 Route::any('/delete_student/{id_students}', [App\Http\Controllers\StudentsController::class, 'delete_student'])->name('delete_student');
 Route::get('/update_student/{id_students}', [App\Http\Controllers\StudentsController::class, 'update_student'])->name('update_student');
 Route::post('/update_student/{id_students}', [App\Http\Controllers\StudentsController::class, 'update_studentForm'])->name('update_student.store');
+Route::get('/listeetudiantparmention/{idMention}', [App\Http\Controllers\StudentsController::class, 'listeetudiantparmention'])->name('listeetudiantparmention');
+Route::get('/listeetudiantparparcour/{idParcour}', [App\Http\Controllers\StudentsController::class, 'listeetudiantparparcour'])->name('listeetudiantparparcour');
+Route::get('/popupetudiant', [App\Http\Controllers\StudentsController::class, 'popupetudiant'])->name('popupetudiant');
+Route::get('/resultatrecherche/{key}', [App\Http\Controllers\StudentsController::class, 'resultatrecherche'])->name('resultatrecherche');
 
 Route::get('/show_all_classroom', [App\Http\Controllers\ClassroomController::class, 'show_all_classroom'])->name('show_all_classroom');
 Route::get('/add_new_classroom', [App\Http\Controllers\ClassroomController::class, 'add_new_classroom'])->name('add_new_classroom');
@@ -54,6 +58,10 @@ Route::get('/show_student_order_type_cours/{id_type_cours}', [App\Http\Controlle
 Route::get('/ecolage_student_detail/', [App\Http\Controllers\EcolageController::class, 'ecolage_student_detail'])->name('ecolage_student_detail');
 Route::get('/details_ecolage/{id_students}', [App\Http\Controllers\EcolageController::class, 'details_ecolage'])->name('details_ecolage');
 Route::post('/details_ecolage/{id_students}', [App\Http\Controllers\EcolageController::class, 'new_ecolageForm'])->name('new_ecolage.store');
+Route::get('/attribuertarif/{idEtudiant}', [App\Http\Controllers\EcolageController::class, 'attribuertarif'])->name('attribuertarif');
+Route::get('/attribuertarifavancer/{idEtudiant}', [App\Http\Controllers\EcolageController::class, 'attribuertarifavancer'])->name('attribuertarifavancer');
+Route::post('/attribuertarifconfirmation', [App\Http\Controllers\EcolageController::class, 'attribuertarifconfirmation'])->name('attribuertarifconfirmation');
+Route::post('/attribuertarifavancerconfirmation', [App\Http\Controllers\EcolageController::class, 'attribuertarifavancerconfirmation'])->name('attribuertarifavancerconfirmation');
 
 Route::get('/history_ecolage', [App\Http\Controllers\EcolageController::class, 'history_ecolage'])->name('history_ecolage');
 

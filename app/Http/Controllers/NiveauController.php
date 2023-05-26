@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Niveau;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class NiveauController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    private $menumention, $menuparcour;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
     }
 
     /**
@@ -31,7 +31,7 @@ class NiveauController extends Controller
     public function listeniveaux()
     {
         $allniveau = Niveau::all();
-        return view('niveau.liste', compact('allniveau'));
+        return view('niveau.liste', ['allniveau' => $allniveau, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function popupniveau()
@@ -42,7 +42,7 @@ class NiveauController extends Controller
 
     public function creationniveauform()
     {
-        return view('niveau.creation');
+        return view('niveau.creation', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function creationniveau(Request $request)
@@ -66,13 +66,13 @@ class NiveauController extends Controller
     public function ficheniveau($idniveau)
     {
         $niveau = Niveau::whereId($idniveau)->first();
-        return view('niveau.fiche', compact('niveau'));
+        return view('niveau.fiche', ['niveau' => $niveau, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifierniveauform($idniveau)
     {
         $niveau = Niveau::whereId($idniveau)->first();
-        return view('niveau.modifier', compact('niveau'));
+        return view('niveau.modifier', ['niveau' => $niveau, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifierniveau(Request $request, $idniveau)

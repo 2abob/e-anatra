@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">liste de tarifs</h4>
+                            <h4 class="card-title">liste etudiants</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
@@ -24,27 +24,23 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            idTarif
+                                            Matricule
                                         </th>
                                         <th>
-                                            idAnnee
+                                            Nom
                                         </th>
                                         <th>
-                                            idParcour
-                                        </th>
-                                        <th>
-                                            idNiveau
+                                            Prenoms
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($alltarif as $tarif)  <!-- boucle donne anaty service  -->
+                                        @foreach ($all_student as $students)  <!-- boucle donne anaty service  -->
 
                                     <tr>
-                                        <td><a href="#" onclick="selectionnerValeur('{{$tarif -> id}}')" class="fw-normal mb-1">{{$tarif -> id}}</a></td>
-                                        <td>{{$tarif -> idAnnee}}</td>
-                                        <td>{{$tarif -> idParcour}}</td>
-                                        <td>{{$tarif -> idNiveau}}</td>
+                                        <td><a href="#" onclick="selectionnerValeur('{{$students -> id}}')" class="fw-normal mb-1">{{$students -> id}}</a></td>
+                                        <td>{{$students -> nom_etudiant}}</td>
+                                        <td>{{$students -> prenoms_etudiant}}</td>
                                     </tr>
 {{--                                    <!-- {{$cnt++}} -->--}}
                                     @endforeach

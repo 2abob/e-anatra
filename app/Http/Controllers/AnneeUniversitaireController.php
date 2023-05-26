@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\AnneeUniversitaire;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class AnneeUniversitaireController extends Controller
 {
-    //
+    private $menumention, $menuparcour;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
+    }
+
     public function listeanneeuniversitaire()
     {
         $allanneeuniversitaire = AnneeUniversitaire::all();
-        return view('anneeuniversitaire.liste', compact('allanneeuniversitaire'));
+        return view('anneeuniversitaire.liste', ['allanneeuniversitaire' => $allanneeuniversitaire, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function popupanneeuniversitaire()
@@ -22,7 +32,7 @@ class AnneeUniversitaireController extends Controller
 
     public function creationanneeuniversitaireform()
     {
-        return view('anneeuniversitaire.creation');
+        return view('anneeuniversitaire.creation', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function creationanneeuniversitaire(Request $request)
@@ -46,13 +56,13 @@ class AnneeUniversitaireController extends Controller
     public function ficheanneeuniversitaire($idanneeuniversitaire)
     {
         $anneeuniversitaire = AnneeUniversitaire::whereId($idanneeuniversitaire)->first();
-        return view('anneeuniversitaire.fiche', compact('anneeuniversitaire'));
+        return view('anneeuniversitaire.fiche', ['anneeuniversitaire' => $anneeuniversitaire, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifieranneeuniversitireform($idanneeuniversitaire)
     {
         $anneeuniversitaire = AnneeUniversitaire::whereId($idanneeuniversitaire)->first();
-        return view('anneeuniversitaire.modifier', compact('anneeuniversitaire'));
+        return view('anneeuniversitaire.modifier', ['anneeuniversitaire' => $anneeuniversitaire, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifieranneeuniversitaire(Request $request, $idanneeuniversitaire)

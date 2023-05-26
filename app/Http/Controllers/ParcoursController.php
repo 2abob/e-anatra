@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Parcour;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class ParcoursController extends Controller
 {
+    private $menumention, $menuparcour;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
+    }
 
     public function listeparcour()
     {
         $allparcour = Parcour::all();
-        return view('parcour.liste', compact('allparcour'));
+        return view('parcour.liste', ['allparcour' => $allparcour, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function popupparcour()
@@ -22,7 +31,7 @@ class ParcoursController extends Controller
 
     public function creationparcourform()
     {
-        return view('parcour.creation');
+        return view('parcour.creation', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function creationparcour(Request $request)
@@ -47,13 +56,13 @@ class ParcoursController extends Controller
     public function ficheparcour($idparcour)
     {
         $parcour = Parcour::whereId($idparcour)->first();
-        return view('parcour.fiche', compact('parcour'));
+        return view('parcour.fiche', ['parcour' => $parcour, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifierparcourform($idparcour)
     {
         $parcour = Parcour::whereId($idparcour)->first();
-        return view('parcour.modifier', compact('parcour'));
+        return view('parcour.modifier', ['parcour' => $parcour, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function modifierparcour(Request $request, $idparcour)

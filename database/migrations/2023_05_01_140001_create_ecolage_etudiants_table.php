@@ -17,10 +17,10 @@ class CreateEcolageEtudiantsTable extends Migration
             $table->string('id')->primary();
             $table->string('idTarif');
             $table->string('idEtudiant');
-            $table->unsignedBigInteger('tranche1');
-            $table->unsignedBigInteger('tranche2');
-            $table->unsignedBigInteger('tranche3');
-            $table->unsignedBigInteger('tranche4');
+            $table->unsignedBigInteger('tranche1')->default(0);
+            $table->unsignedBigInteger('tranche2')->default(0);
+            $table->unsignedBigInteger('tranche3')->default(0);
+            $table->unsignedBigInteger('tranche4')->default(0);
             $table->timestamps();
             $table->unique(['idTarif', 'idEtudiant']);
             $table->foreign('idTarif')->references('id')->on('tarifs');

@@ -5,13 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\ecolage;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\Parcour;
+use App\Models\Mention;
+use App\Models\EcolageEtudiant;
 
 class EcolageController extends Controller
 {
+    protected $menumention, $menuparcour;
 
     public function __construct()
     {
         $this->middleware('auth');
+        $menumention = Parcour::all();
+        $menuparcour = Mention::all();
     }
 
     public function ecolage_student_detail()
@@ -20,7 +26,7 @@ class EcolageController extends Controller
             ->join('type_cours', 'students.id_type_cours', '=', 'type_cours.id')
             ->select('students.*', 'classes.nom_classe', 'type_cours.type_cours')
             ->get();
-        return view('ecolage.ecolage_student_detail',compact('all_student'));
+        return view('ecolage.ecolage_student_detail',compact('all_student', 'menumention', 'menuparcour'));
     }
     public function details_ecolage($id_student){
 //        dd($id_student);
@@ -38,7 +44,7 @@ class EcolageController extends Controller
             ->select('students.*', 'classes.nom_classe', 'type_cours.type_cours')
             ->where('students.id',$id_student)
             ->first();
-        return view('ecolage.details_ecolage',compact('ecolage_student','all_student'));
+        return view('ecolage.details_ecolage',compact('ecolage_student','all_student', 'menumention', 'menuparcour'));
 
     }
     public function new_ecolageForm(Request $request, $id_student){
@@ -90,12 +96,57 @@ class EcolageController extends Controller
             ->get();
 
 
-        return view('ecolage.history_ecolage',compact('all_student'));
+        return view('ecolage.history_ecolage',compact('all_student', 'menumention', 'menuparcour'));
 
+    }
 
+    public function attribuertarif($idEtudiant)
+    {
+        return view('ecolage.attribution', ['idEtudiant' => $idEtudiant, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+    }
 
+    public function attribuertarifconfirmation(Request $request)
+    {
+        try{
+            $this->validate($request, [
+                'idEtudiant' => 'required',
+                'idTarif' => 'required'
+            ]);
+            EcolageEtudiant::create($request->all());
+            return back()->with('success', 'tarif attribuee.');
+        }
+        catch (\Exception $e) {
+            // return back()->with('success', $e->getMessage().'');
+            return back()->with('error', $e->getMessage().'');
+            // return back()->with('error', $e);
+            // echo "Erreur : ".$e->getMessage().'<br>';
+            // var_dump($e);
+        }
+    }
 
+    public function attribuertarifavancer($idEtudiant)
+    {
+        return view('ecolage.attributionav', ['idEtudiant' => $idEtudiant, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+    }
 
-
+    public function attribuertarifavancerconfirmation(Request $request)
+    {
+        try{
+            $this->validate($request, [
+                'idEtudiant' => 'required',
+                'idNiveau' => 'required',
+                'idParcour' => 'required',
+                'idAnnee' => 'required',
+            ]);
+            EcolageEtudiant::create($request->all());
+            return back()->with('success', 'tarif attribuee.');
+        }
+        catch (\Exception $e) {
+            // return back()->with('success', $e->getMessage().'');
+            return back()->with('error', $e->getMessage().'');
+            // return back()->with('error', $e);
+            // echo "Erreur : ".$e->getMessage().'<br>';
+            // var_dump($e);
+        }
     }
 }

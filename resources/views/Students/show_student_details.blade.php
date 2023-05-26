@@ -87,8 +87,10 @@
                                     {{--                                    @endforeach--}}
                                     </tbody>
                                 </table>
-                           <a href="/delete_student/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-danger btn-md">Supprimer</button></a>
-                             <a href="/update_student/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Modifier</button></a>
+                                <a href="/delete_student/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-danger btn-md">Supprimer</button></a>
+                                <a href="/update_student/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Modifier</button></a>
+                                <a href="/attribuertarif/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Attribuer tarif</button></a>
+                                <a href="/attribuertarifavancer/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Attribuer tarif (Avancee)</button></a>
                             </div>
                         </div>
                     </div>

@@ -8,17 +8,18 @@ use App\Models\Student;
 use App\Models\type_cours;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Parcour;
+use App\Models\Mention;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    private $menumention, $menuparcour;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->menumention = Mention::all();
+        $this->menuparcour = Parcour::all();
     }
 
     /**

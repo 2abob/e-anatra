@@ -1,6 +1,6 @@
-@extends('layouts.layout2')
+@extends('layouts.layout')
 
-@section('content')
+@section('content_show_all_students')
 
     <!-- partial -->
     <div class="main-panel">
@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">liste de tarifs</h4>
+                            <h4 class="card-title">{{$titre}}</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">
@@ -24,30 +24,35 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            idTarif
+                                            Matricule
                                         </th>
                                         <th>
-                                            idAnnee
+                                            Nom
                                         </th>
                                         <th>
-                                            idParcour
+                                            Prenoms
                                         </th>
                                         <th>
-                                            idNiveau
+                                            Action
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($alltarif as $tarif)  <!-- boucle donne anaty service  -->
+                                        @if(!empty($all_student))
+                                        @foreach ($all_student as $students)  <!-- boucle donne anaty service  -->
 
                                     <tr>
-                                        <td><a href="#" onclick="selectionnerValeur('{{$tarif -> id}}')" class="fw-normal mb-1">{{$tarif -> id}}</a></td>
-                                        <td>{{$tarif -> idAnnee}}</td>
-                                        <td>{{$tarif -> idParcour}}</td>
-                                        <td>{{$tarif -> idNiveau}}</td>
+                                        <td><a href="/student_details/{{$students -> id}}" class="fw-normal mb-1">{{$students -> id}}</a></td>
+                                        <td>{{$students -> nom_etudiant}}</td>
+                                        <td>{{$students -> prenoms_etudiant}}</td>
+                                        <td>
+                                            <a href="/update_student/{{$students -> id}}" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">Modifier</a>
+                                            <a href="/delete_student/{{$students -> id}}" class="btn btn-danger" data-mdb-ripple-color="dark">Supprimer</a>
+                                        </td>
                                     </tr>
 {{--                                    <!-- {{$cnt++}} -->--}}
                                     @endforeach
+                                    @endif
 {{--                                            @php--}}
 {{--                                                break;--}}
 {{--                                            @endphp--}}

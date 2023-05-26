@@ -47,7 +47,7 @@
                 <div class="input-group">
                 <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                     <span class="input-group-text" id="search">
-                    <i class="icon-search"></i>
+                    <i onclick="search()" class="icon-search"></i>
                     </span>
                 </div>
                 <input type="text" class="form-control" id="navbar-search-input" placeholder="rechercher" aria-label="search" aria-describedby="search">
@@ -150,6 +150,11 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="/listemention">liste des mentions</a></li>
                             <li class="nav-item"><a class="nav-link" href="/creationmentionform">Ajouter un mention</a></li>
+                            @if(!empty($menumention))
+                                @foreach ($menumention as $mention)
+                                    <li class="nav-item"><a class="nav-link" href="/listeetudiantparmention/{{$mention -> id}}">liste des etudiant par {{$mention -> mention}}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </li>
@@ -163,6 +168,11 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="/listeparcour">liste des parcours</a></li>
                             <li class="nav-item"><a class="nav-link" href="/creationparcourform">Ajouter un parcour</a></li>
+                            @if(!empty($menumention))
+                                @foreach ($menuparcour as $parcour)
+                                    <li class="nav-item"><a class="nav-link" href="/listeetudiantparparcour/{{$parcour -> id}}">liste des etudiant par {{$parcour -> parcour}}</a></li>
+                                @endforeach
+                            @endif
                         </ul>
                     </div>
                 </li>
@@ -238,8 +248,9 @@
                             <li class="nav-item"><a class="nav-link" href="/ecolage_student_detail">Vérification écolage</a></li>
 {{--                            <li class="nav-item"><a class="nav-link" href="/add_new_ecolage">Confirmer le--}}
 {{--                                    paiement d' écolage</a></li>--}}
-                            <li class="nav-item"><a class="nav-link" href="/history_ecolage">Afficher
-                                    l'historique des écolages</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/history_ecolage">Afficher l'historique des écolages</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/attribuertarif/no_id">attribuer ecolage a un etudiant</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/attribuertarifavancer/no_id">attribuer ecolage a un etudiant (avance)</a></li>
                         </ul>
                     </div>
                 </li>
@@ -308,6 +319,7 @@
 <script src="{{ asset('js/customs/main.js') }}"></script>
 <script src="{{ asset('js/chart.js') }}"></script>
 <script src="{{ asset('js/popup.js') }}"></script>
+<script src="{{ asset('js/search.js') }}"></script>
 
 </body>
 

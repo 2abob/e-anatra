@@ -7,9 +7,9 @@
                 <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Ajouter un parcour</h4>
+                            <h4 class="card-title">attribuer un tarif pour un etudiant</h4>
                             <p class="card-description">
-                                Remplissez les champs ci-dessous pour ajouter un parcour
+                                Remplissez les champs ci-dessous
                             </p>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
@@ -29,16 +29,31 @@
                                     </div>
                                 </div>
                             @endif
-                            <form class="forms-sample"  method="post" action="{{ route('creationparcour') }}" enctype="multipart/form-data">
+                            <form class="forms-sample"  method="post" action="{{ route('attribuertarifavancerconfirmation') }}" enctype="multipart/form-data">
                                 <!-- CROSS Site Request Forgery Protection -->
                                 @csrf
+                                @if($idEtudiant == 'no_id')
                                 <div class="form-group">
-                                    <label for="exampleInputName1">mention</label>
-                                    <input name="idMention" onclick="popup('popupmention', 'idMention')" type="text" class="form-control" id="idMention" placeholder="mention" required>
+                                    <label for="exampleInputName1">etudiant</label>
+                                    <input name="idEtudiant" onclick="popup('/popupetudiant', 'idEtudiant')" type="text" class="form-control" id="idEtudiant" placeholder="etudiant" required>
+                                </div>
+                                @else
+                                <div class="form-group">
+                                    <label for="exampleInputName1">etudiant</label>
+                                    <input name="idEtudiant" onclick="popup('/popupetudiant', 'idEtudiant')" type="text" class="form-control" id="idEtudiant" placeholder="etudiant" required disabled>
+                                </div>
+                                @endif
+                                <div class="form-group">
+                                    <label for="exampleInputName1">niveau</label>
+                                    <input name="idNiveau" onclick="popup('/popupniveau', 'idNiveau')" type="text" class="form-control" id="idNiveau" placeholder="niveau" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputName1">pracour</label>
-                                    <input name="parcour" type="text" class="form-control" id="parcour" placeholder="parcour" required>
+                                    <label for="exampleInputName1">parcour</label>
+                                    <input name="idParcour" onclick="popup('/popupparcour', 'idParcour')" type="text" class="form-control" id="idParcour" placeholder="parcour" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName1">annee</label>
+                                    <input name="idAnnee" onclick="popup('/popupanneeuniversitaire', 'idAnnee')" type="text" class="form-control" id="idAnnee" placeholder="annee universitaire" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <a href="/dashboard" type="button" class="btn btn-light">annuler</a>
