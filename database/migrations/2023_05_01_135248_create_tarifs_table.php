@@ -19,10 +19,10 @@ class CreateTarifsTable extends Migration
             $table->string('idParcour');
             $table->string('idNiveau');
             $table->unsignedBigInteger('ecolage');
-            $table->unsignedBigInteger('tranche1');
-            $table->unsignedBigInteger('tranche2');
-            $table->unsignedBigInteger('tranche3');
-            $table->unsignedBigInteger('tranche4');
+            $table->unsignedBigInteger('tranche1')->default(0);
+            $table->unsignedBigInteger('tranche2')->default(0);
+            $table->unsignedBigInteger('tranche3')->default(0);
+            $table->unsignedBigInteger('tranche4')->default(0);
             $table->timestamps();
             $table->unique(['idAnnee', 'idParcour', 'idNiveau']);
             $table->foreign('idAnnee')->references('id')->on('annee_universitaires');
