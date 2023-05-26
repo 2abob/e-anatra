@@ -36,7 +36,7 @@
                             <form class="pt-3" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="form-group">
-                                    <input id="email" type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus" placeholder="Nom d'utilisateur">
+                                    <input id="email" type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" required autofocus" placeholder="Nom d'utilisateur">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
