@@ -40,11 +40,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">paye</label>
-                                    <input type="text" class="form-control" id="nom" value="mention" disabled>
+                                    <input type="text" class="form-control" id="nom" value="{{$ecolageform -> id}}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">reste</label>
-                                    <input type="text" class="form-control" id="nom" value="mention" disabled>
+                                    <input type="text" class="form-control" id="nom" value="{{$ecolageform -> }}" disabled>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName1">le montant que l'etudiant souhaite payer</label>

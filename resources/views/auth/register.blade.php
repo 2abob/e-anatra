@@ -27,10 +27,10 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                  <img class="img_logo_login" src="/images/eanatra.png" alt="logo">
               </div>
-              <h4>New here?</h4>
-              <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+              <h4>Nouveau ici?</h4>
+              <h6 class="font-weight-light">L'inscription est facile. Cela ne prend que quelques étapes</h6>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -67,12 +67,14 @@
                         <div class="form-group">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required  placeholder="confirm password">
                         </div>
-
                         <div class="mt-3">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Enregistrer</button>
+                        </div>
+                        <div class="my-2 d-flex justify-content-between align-items-center">
+                            <div class="form-check">
+                                <label class="form-check-label text-muted">
+                                    <a href="/login">se connecter</a>
+                                </label>
                             </div>
                         </div>
                     </form>

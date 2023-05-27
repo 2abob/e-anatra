@@ -60,7 +60,7 @@
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
-                                            <a href="http://127.0.0.1:8000/register">S'inscrire</a>
+                                            <a href="/register">S'inscrire</a>
                                         </label>
                                     </div>
                                 </div>

@@ -245,10 +245,10 @@
                     </a>
                     <div class="collapse" id="charts">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="/ecolage_student_detail">Vérification écolage</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="/ecolage_student_detail">Vérification écolage</a></li> -->
 {{--                            <li class="nav-item"><a class="nav-link" href="/add_new_ecolage">Confirmer le--}}
 {{--                                    paiement d' écolage</a></li>--}}
-                            <li class="nav-item"><a class="nav-link" href="/history_ecolage">Afficher l'historique des écolages</a></li>
+                            <!-- <li class="nav-item"><a class="nav-link" href="/history_ecolage">Afficher l'historique des écolages</a></li> -->
                             <li class="nav-item"><a class="nav-link" href="/attribuertarif/no_id">attribuer ecolage a un etudiant</a></li>
                             <li class="nav-item"><a class="nav-link" href="/attribuertarifavancer/no_id">attribuer ecolage a un etudiant (avance)</a></li>
                         </ul>
