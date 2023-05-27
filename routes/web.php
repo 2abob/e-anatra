@@ -62,6 +62,7 @@ Route::get('/attribuertarif/{idEtudiant}', [App\Http\Controllers\EcolageControll
 Route::get('/attribuertarifavancer/{idEtudiant}', [App\Http\Controllers\EcolageController::class, 'attribuertarifavancer'])->name('attribuertarifavancer');
 Route::post('/attribuertarifconfirmation', [App\Http\Controllers\EcolageController::class, 'attribuertarifconfirmation'])->name('attribuertarifconfirmation');
 Route::post('/attribuertarifavancerconfirmation', [App\Http\Controllers\EcolageController::class, 'attribuertarifavancerconfirmation'])->name('attribuertarifavancerconfirmation');
+Route::post('/ficheecolageetudiant/{idEcolage}', [App\Http\Controllers\EcolageController::class, 'ficheecolageetudiant'])->name('ficheecolageetudiant');
 
 Route::get('/history_ecolage', [App\Http\Controllers\EcolageController::class, 'history_ecolage'])->name('history_ecolage');
 

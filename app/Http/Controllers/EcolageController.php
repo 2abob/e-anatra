@@ -30,7 +30,7 @@ class EcolageController extends Controller
     }
     public function details_ecolage($id_student){
 //        dd($id_student);
-        $ecolage_student = ecolage::where('id_etudiant',$id_student)->join('students','students.id','=','ecolages.id_etudiant')
+        $ecolage_student = ecolage::whereId($id_student)->join('students','students.id','=','ecolages.id_etudiant')
             ->select('students.*', 'ecolages.*', 'ecolages.created_at')
             ->get();
 //        foreach ( $ecolage_student as  $ecolage_students){
@@ -148,5 +148,11 @@ class EcolageController extends Controller
             // echo "Erreur : ".$e->getMessage().'<br>';
             // var_dump($e);
         }
+    }
+
+    public function ficheecolageetudiant($idEcolage)
+    {
+        $ecolage = DB::table('listeetudiantmention')->where('id', $idEcolage)->first();
+        return view('ecolage.ficheecolageetudiant', ['ecolage' => $ecolage, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 }
