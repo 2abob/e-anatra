@@ -77,11 +77,7 @@ class NiveauController extends Controller
 
     public function modifierniveau(Request $request, $idniveau)
     {
-<<<<<<< Updated upstream
         $validatedData = $request->validate([
-=======
-        $validatedData =  $request->validate([
->>>>>>> Stashed changes
             'niveau' => 'required',
         ]);
         Niveau::whereId($idniveau)->update($validatedData);
