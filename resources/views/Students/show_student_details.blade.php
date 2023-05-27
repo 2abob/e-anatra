@@ -106,6 +106,7 @@
                                     <tr>
                                         <td><a href="/ficheecolageetudiant/{{$ecolage -> id}}">{{$ecolage -> id}}</a></td>
                                     </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

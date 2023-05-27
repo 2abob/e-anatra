@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\classe;
 use App\Models\Student;
-use App\Models\type_cours;
+use App\Models\EcolageEtudiant;
 use Illuminate\Http\Request;
 use App\Models\Parcour;
 use App\Models\Mention;
@@ -182,9 +182,10 @@ class StudentsController extends Controller
     {
         try{
             $titre = "liste des etudiants pour la mention ".$idMention;
+            $isEmpty  = DB::table('listeetudiantmention')->exists();
             $all_student = DB::table('listeetudiantmention')->where('idMention', $idMention);
-            // var_dump($all_student);
-            // return view('Students.liste', ['titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+            // var_dump($isEmpty);
+            return view('Students.liste', ['isEmpty' => $isEmpty, 'titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
         }
         catch (\Exception $e) {
             // return back()->with('success', $e->getMessage().'');
@@ -197,10 +198,11 @@ class StudentsController extends Controller
 
     public function listeetudiantparparcour($idParcour)
     {
-        $titre = "liste des etudiants pour la mention ".$idParcour;
+        $titre = "liste des etudiants pour le parcour ".$idParcour;
         // var_dump($titre);
-        $all_student = DB::table('listeetudiantmention')->where('idParcour', $idParcour);
-        return view('Students.liste', ['titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+        $isEmpty  = DB::table('listeetudiantparcour')->exists();
+        $all_student = DB::table('listeetudiantparcour')->where('idParcour', $idParcour);
+        return view('Students.liste', ['isEmpty' => $isEmpty, 'titre' => $titre, 'all_student' => $all_student, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function resultatrecherche($key)

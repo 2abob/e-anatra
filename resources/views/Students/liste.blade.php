@@ -38,9 +38,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @if(!empty($all_student))
-                                        @foreach ($all_student as $students)  <!-- boucle donne anaty service  -->
-
+                                    @if($isEmpty)
+                                    @foreach ($all_student as $students)  <!-- boucle donne anaty service  -->
                                     <tr>
                                         <td><a href="/student_details/{{$students -> id}}" class="fw-normal mb-1">{{$students -> id}}</a></td>
                                         <td>{{$students -> nom_etudiant}}</td>
