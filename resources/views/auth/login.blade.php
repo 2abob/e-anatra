@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/custom.css">
 
     <!-- endinject -->
-    <link rel="shortcut icon" href="/images/final3.png" />
+    <link rel="shortcut icon" href="/images/eanatra.png" />
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div class="brand-logo">
-                                <img class="img_logo_login" src="/images/final3.png" alt="logo">
+                                <img class="img_logo_login" src="/images/eanatra.png" alt="logo">
                             </div>
                             <h4>Bonjour ! Commençons</h4>
                             <h6 class="font-weight-light">Connectez-vous pour continuer.</h6>
@@ -60,6 +60,7 @@
                                 <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
                                         <label class="form-check-label text-muted">
+                                            <a href="http://127.0.0.1:8000/register">S'inscrire</a>
                                         </label>
                                     </div>
                                 </div>
@@ -71,7 +72,7 @@
                             <footer class="footer_login">
                                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
                                     <span
-                                        class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright©2022. Application développer et maintenue par <a href="" target="_blank">Cours Ny Fahombiazako</a></span>
+                                        class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright©2023. Application développer et maintenue par <a href="" target="_blank">Les equipes NDAO de l'ISPM</a></span>
                                 </div>
                             </footer>
                         </div>
