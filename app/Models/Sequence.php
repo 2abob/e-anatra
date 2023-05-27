@@ -10,7 +10,7 @@ class Sequence extends Model
 {
     use HasFactory;
 
-    function getNextSequenceValue($sequenceName)
+    static function getNextSequenceValue($sequenceName)
     {
         DB::beginTransaction();
 
