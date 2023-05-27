@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Parcour;
 use App\Models\Mention;
 use App\Models\EcolageEtudiant;
+use Illuminate\Support\Facades\DB;
 
 class EcolageController extends Controller
 {
@@ -112,6 +113,14 @@ class EcolageController extends Controller
                 'idEtudiant' => 'required',
                 'idTarif' => 'required'
             ]);
+            $idet = $request->input('idEtudiant');
+            $idtar = $request->input('idTarif');
+            // EcolageEtudiant::create([
+            //     'idEtudiant' => $idet,
+            //     'idTarif' => $idtar
+            // ]);
+            // var_dump($idet);
+            // var_dump($idtar);
             EcolageEtudiant::create($request->all());
             return back()->with('success', 'tarif attribuee.');
         }
@@ -152,13 +161,13 @@ class EcolageController extends Controller
 
     public function ficheecolageetudiant($idEcolage)
     {
-        $ecolage = DB::table('listeetudiantmention')->where('id', $idEcolage)->first();
+        $ecolage = DB::table('ficheecolageetudiant')->where('id', $idEcolage)->first();
         return view('ecolage.ficheecolageetudiant', ['ecolage' => $ecolage, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function reglerecolageform($idEcolage, $numTranche)
     {
-        $ecolageform = DB::select(DB::raw('CALL getFormReglerEcolageEtudiant(?, ?)'), [$idEcolage, $numTranche]);
+        $ecolageform = DB::select(DB::raw("CALL getFormReglerEcolageEtudiant(?, ?)"), [$idEcolage, $numTranche]);
         return view('ecolage.regler', ['idEcolage' => $idEcolage, 'numTranche' => $numTranche, 'ecolageform' => $ecolageform, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 

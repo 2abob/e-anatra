@@ -50,11 +50,12 @@ class StudentsController extends Controller
     public function show_student_details($id_student)
     {
         $student_details = student::whereId($id_student)->first();
-        $ecolages = EcolageEtudiant::where('idEtudiant', $id_student);
+        // $allecolagesetudiant = EcolageEtudiant::where('idEtudiant', $id_student);
+        $allecolagesetudiant = EcolageEtudiant::where('idEtudiant', $id_student)->get();
 //        dd($student_details->created_at);
 //        $student_details_join = student::join('classes',$student_details->id_classe,'=','classes.id')->get();
-
-        return view('Students.show_student_details', ['student_details' => $student_details, 'ecolages' => $ecolages, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+        // var_dump($ecolages);
+        return view('Students.show_student_details', ['student_details' => $student_details, 'allecolagesetudiant' => $allecolagesetudiant, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
     public function add_new_students()

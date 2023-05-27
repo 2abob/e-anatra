@@ -102,7 +102,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($ecolages as $ecolage)
+                                    @foreach ($allecolagesetudiant as $ecolage)
                                     <tr>
                                         <td><a href="/ficheecolageetudiant/{{$ecolage -> id}}">{{$ecolage -> id}}</a></td>
                                     </tr>

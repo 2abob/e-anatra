@@ -13,12 +13,12 @@ CREATE PROCEDURE getFormReglerEcolageEtudiant(paramIdee varchar(255), numTranche
 BEGIN
     
     SET @s = CONCAT(
-        'SELECT ee.id, t.tranche', numTranche,
-        ' as apayer, ee.tranche', numTranche, 
-        ' as payee, (t.tranche', numTranche, 
-        ' - ee.tranche', numTranche, ') as reste 
-        from ecolage_etudiants ee join tarif t on ee.idTarif = t.id
-        where ee.id=', paramIdee
+        "SELECT ee.id, t.tranche", numTranche,
+        " as apayer, ee.tranche", numTranche, 
+        " as payee, (t.tranche", numTranche, 
+        " - ee.tranche", numTranche, ") as reste 
+        from ecolage_etudiants ee join tarifs t on ee.idTarif = t.id
+        where ee.id=", paramIdee
     );
     PREPARE stmt1 FROM @s;
     EXECUTE stmt1;

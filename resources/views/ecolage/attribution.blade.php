@@ -40,12 +40,16 @@
                                 @else
                                 <div class="form-group">
                                     <label for="exampleInputName1">etudiant</label>
-                                    <input name="idEtudiant" onclick="popup('/popupetudiant', 'idEtudiant')" type="text" class="form-control" id="idEtudiant" placeholder="etudiant" required value="{{$idEtudiant}}" disabled>
+                                    <input name="idEtudiant" onclick="popup('/popupetudiant', 'idEtudiant')" type="text" class="form-control" id="idEtudiant" placeholder="etudiant" required value="{{$idEtudiant}}">
                                 </div>
                                 @endif
                                 <div class="form-group">
                                     <label for="exampleInputName1">tarif</label>
                                     <input name="idTarif" onclick="popup('/popuptarif', 'idTarif')" type="text" class="form-control" id="idTarif" placeholder="tarif" required>
+                                    <input name="tranche1" type="hidden" value="0" class="form-control" required>
+                                    <input name="tranche2" type="hidden" value="0" class="form-control" required>
+                                    <input name="tranche3" type="hidden" value="0" class="form-control" required>
+                                    <input name="tranche4" type="hidden" value="0" class="form-control" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary mr-2">Enregistrer</button>
                                 <a href="/dashboard" type="button" class="btn btn-light">annuler</a>
