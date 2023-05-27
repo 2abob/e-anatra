@@ -77,11 +77,7 @@ class NiveauController extends Controller
 
     public function modifierniveau(Request $request, $idniveau)
     {
-        $validatedData = $request->validate([
-            'niveau' => 'required',
-        ]);
         Niveau::whereId($idniveau)->update($validatedData);
-
         return redirect('/listeniveaux')->with('success', 'Le niveau a ete modifier.');
     }
 

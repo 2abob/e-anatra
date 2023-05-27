@@ -155,4 +155,19 @@ class EcolageController extends Controller
         $ecolage = DB::table('listeetudiantmention')->where('id', $idEcolage)->first();
         return view('ecolage.ficheecolageetudiant', ['ecolage' => $ecolage, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
+
+    public function reglerecolageform($idEcolage, $numTranche)
+    {
+        $ecolageform = DB::select(DB::raw('CALL getFormReglerEcolageEtudiant(?, ?)'), [$idEcolage, $numTranche]);
+        return view('ecolage.regler', ['idEcolage' => $idEcolage, 'numTranche' => $numTranche, 'ecolageform' => $ecolageform, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+    }
+
+    public function reglerecolage(Request $request)
+    {
+        $idecolageettudiant = $request->input('idecolage');
+        $montant = $request->input('montant');
+        $tranche = $request->input('tranche');
+        Niveau::whereId($idecolageettudiant)->increment(''.$tranche, $montant);
+        return redirect('/ficheecolageetudiant/'.$idecolageettudiant)->with('success', "le payement a ete effectuer");
+    }
 }

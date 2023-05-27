@@ -7,6 +7,15 @@
         <div class="content-wrapper">
             <div class="row">
                 <div class="col-lg-12 grid-margin stretch-card">
+                    @if(Session::has('success'))
+                    <div class="row form-ro">
+                        <div class="col-md-12">
+                            <p class="text-success">
+                                {{Session::get('success')}}
+                            </p>
+                        </div>
+                    </div>
+                    @endif
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Details sur le payement de l'ecolage {{$ecolage -> id}}</h4>
@@ -27,28 +36,36 @@
                                             <td>{{$ecolage -> apaye1}}</td>
                                             <td>{{$ecolage -> paye1}}</td>
                                             <td>{{$ecolage -> rest1}}</td>
-                                            <td></td>
+                                            @if(empty($maVariable))
+                                            <td><a href="/reglerecolageform/{{$ecolage -> id}}/1" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">regler</a></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>{{$ecolage -> apaye2}}</td>
                                             <td>{{$ecolage -> paye2}}</td>
                                             <td>{{$ecolage -> rest2}}</td>
-                                            <td></td>
+                                            @if(empty($maVariable))
+                                            <td><a href="/reglerecolageform/{{$ecolage -> id}}/2" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">regler</a></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>{{$ecolage -> apaye3}}</td>
                                             <td>{{$ecolage -> paye3}}</td>
                                             <td>{{$ecolage -> rest3}}</td>
-                                            <td></td>
+                                            @if(empty($maVariable))
+                                            <td><a href="/reglerecolageform/{{$ecolage -> id}}/3" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">regler</a></td>
+                                            @endif
                                         </tr>
                                         <tr>
                                             <td>4</td>
                                             <td>{{$ecolage -> apaye4}}</td>
                                             <td>{{$ecolage -> paye4}}</td>
                                             <td>{{$ecolage -> rest4}}</td>
-                                            <td></td>
+                                            @if(empty($maVariable))
+                                            <td><a href="/reglerecolageform/{{$ecolage -> id}}/4" class="btn btn-outline-info btn-fw" data-mdb-ripple-color="dark">regler</a></td>
+                                            @endif
                                         </tr>
                                     </tbody>
                                 </table>

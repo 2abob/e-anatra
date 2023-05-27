@@ -31,3 +31,17 @@ CREATE PROCEDURE payerTranche(idEtudiant int, idTarif int, numTranche int, monta
         DEALLOCATE PREPARE stmt1;
     END
 // 
+
+-- payer tranche d'ecolage d'un etudiant
+DELIMITER //
+CREATE PROCEDURE payerTranche(idEcolageEtudiant int, numTranche int, montant int)
+    BEGIN
+        SET @s = CONCAT(
+            'update ecolage_etudiants set tranche', 
+            numTranche, '=', montant, 
+            ' where id=', idEcolageEtudiant);
+        PREPARE stmt1 FROM @s;
+        EXECUTE stmt1;
+        DEALLOCATE PREPARE stmt1;
+    END
+// 
