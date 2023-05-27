@@ -61,7 +61,7 @@ class StudentsController extends Controller
     public function add_new_students()
     {
         $all_classroom = classe::all();
-        $all_type_cour = type_cours::all();
+        // $all_type_cour = type_cours::all();
         return view('Students.add_new_students', ['menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
@@ -113,7 +113,7 @@ class StudentsController extends Controller
     public function update_student($id_student)
     {
         $all_classroom = classe::all();
-        $all_type_cour = type_cours::all();
+        // $all_type_cour = type_cours::all();
 
         $student = student::whereId($id_student)->first();
 //        $student = student::where('id',$id_student)->first();
