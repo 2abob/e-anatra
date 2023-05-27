@@ -7,9 +7,10 @@ from students et join ecolage_etudiants ee on et.id = ee.idEtudiant
 join tarifs t on ee.idTarif = t.id;
 
 -- form regler ecolage etudiant
+DROP PROCEDURE IF EXISTS getFormReglerEcolageEtudiant;
 DELIMITER //
 
-CREATE PROCEDURE getFormReglerEcolageEtudiant(paramIdee varchar(255), numTranche int)
+CREATE PROCEDURE getFormReglerEcolageEtudiant(IN paramIdee varchar(255), IN numTranche varchar(255))
 BEGIN
     
     SET @s = CONCAT(
@@ -18,11 +19,12 @@ BEGIN
         " as payee, (t.tranche", numTranche, 
         " - ee.tranche", numTranche, ") as reste 
         from ecolage_etudiants ee join tarifs t on ee.idTarif = t.id
-        where ee.id=", paramIdee
+        where ee.id='", paramIdee, "'"
     );
     PREPARE stmt1 FROM @s;
     EXECUTE stmt1;
-    DEALLOCATE PREPARE stmt1;
+    DEALLOCATE PREPARE stmt1; 
+    -- select @s as test;
     
 END //
 

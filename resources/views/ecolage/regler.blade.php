@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputName1">a payer</label>
                                     <input type="text" class="form-control" id="nom" value="mention" disabled>
-                                    <input name="idecolage" type="hidden" class="form-control" id="nom" value="{{$idEcolage -> id}}" disabled>
+                                    <input name="idecolage" type="hidden" class="form-control" id="nom" value="{{$idEcolage}}" disabled>
                                     <input name="tranche" type="hidden" class="form-control" id="nom" value="tranche{{ $numTranche }}" disabled>
                                 </div>
                                 <div class="form-group">

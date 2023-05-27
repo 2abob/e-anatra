@@ -64,7 +64,7 @@ Route::post('/attribuertarifconfirmation', [App\Http\Controllers\EcolageControll
 Route::post('/attribuertarifavancerconfirmation', [App\Http\Controllers\EcolageController::class, 'attribuertarifavancerconfirmation'])->name('attribuertarifavancerconfirmation');
 Route::get('/ficheecolageetudiant/{idEcolage}', [App\Http\Controllers\EcolageController::class, 'ficheecolageetudiant'])->name('ficheecolageetudiant');
 Route::get('/reglerecolageform/{idEcolage}/{numTranche}', [App\Http\Controllers\EcolageController::class, 'reglerecolageform'])->name('reglerecolageform');
-Route::post('/reglerecolage', [App\Http\Controllers\EcolageController::class, 'reglerecolage'])->name('reglerecolage');
+Route::get('/reglerecolage/{idecolageettudiant}/{montant}/{tranche}', [App\Http\Controllers\EcolageController::class, 'reglerecolage'])->name('reglerecolage');
 
 Route::get('/history_ecolage', [App\Http\Controllers\EcolageController::class, 'history_ecolage'])->name('history_ecolage');
 

@@ -209,6 +209,7 @@ class StudentsController extends Controller
     public function resultatrecherche($key)
     {
         $results = DB::select(DB::raw('CALL rechercher(?)'), [$key]);
-        return view('Students.resultat', ['key' => $key, 'results' => $results, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
+        var_dump($results);
+        // return view('Students.resultat', ['key' => $key, 'results' => $results, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 }
