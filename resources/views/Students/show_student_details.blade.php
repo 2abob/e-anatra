@@ -92,6 +92,23 @@
                                 <a href="/attribuertarif/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Attribuer tarif</button></a>
                                 <a href="/attribuertarifavancer/{{$student_details -> id}}"><button style="margin-top: 26px;" class="btn btn-primary btn-md">Attribuer tarif (Avancee)</button></a>
                             </div>
+                            <div class="table-responsive pt-3">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            fiche ecolage
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($ecolages as $ecolage)
+                                    <tr>
+                                        <td><a href="/ficheecolageetudiant/{{$ecolage -> id}}">{{$ecolage -> id}}</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
