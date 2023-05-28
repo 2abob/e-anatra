@@ -48,7 +48,7 @@
                                         <th>Image</th>
                                        
                                         {{--    <td><img src="{{ Storage::url($student_details->image) }}" height="75" width="75" alt="" /></td>  --}}
-                                                <td><img src="{{ asset("myfiles/$student_details->image") }}" height="75" width="75" alt="" /></td>
+                                        {{--    <td><img src="{{ asset("myfiles/$student_details->image") }}" height="75" width="75" alt="" /></td>  --}}
 
                                     </tr>
                                     <tr>
@@ -75,13 +75,13 @@
                                         <th>Adresse</th>
                                         <td>{{$student_details -> adresse}}</td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <th>Date de creation</th>
                                         <td>{{$student_details -> created_at}}</td>
                                     </tr>
                                     <tr>
                                         <th>Date de modification</th>
-                                        <td>{{$student_details -> updated_at}}</td>
+                                        <td>{{$student_details -> updated_at}}</td>--}}
                                     </tr>
                                     {{--                                    <!-- {{$cnt++}} -->--}}
                                     {{--                                    @endforeach--}}

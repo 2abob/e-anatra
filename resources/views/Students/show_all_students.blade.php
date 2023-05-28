@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Tableau de bord</h4>
+                            <h4 class="card-title">Liste des etudiants</h4>
                             @if(Session::has('success'))
                                 <div class="row form-ro">
                                     <div class="col-md-12">

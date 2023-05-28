@@ -9,7 +9,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Details du parcour</h4>
+                            <h4 class="card-title">Details de la mention</h4>
                             <div class="table-responsive pt-3">
                                 <table class="table table-bordered">
                                     <tbody>
