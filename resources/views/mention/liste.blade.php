@@ -28,7 +28,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($allmention as $mention)
+                                        @foreach ($menumention as $mention)
                                             <tr>
                                                 <td><a href="/fichemention/{{$mention -> id}}" class="fw-normal mb-1">{{$mention -> mention}}</a></td>
                                                 <td>

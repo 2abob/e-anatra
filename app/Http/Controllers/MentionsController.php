@@ -20,6 +20,7 @@ class MentionsController extends Controller
     public function listemention()
     {
         $allmention = Mention::all();
+        // return view('mention.liste', ['allmention' => $allmention, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
         return view('mention.liste', ['allmention' => $allmention, 'menumention' => $this->menumention, 'menuparcour' => $this->menuparcour]);
     }
 
